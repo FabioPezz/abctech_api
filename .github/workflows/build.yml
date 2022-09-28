@@ -1,8 +1,14 @@
-name: GitHub Actions Demo
+name: Spring Boot CI/CD
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
 jobs:
-  Explore-GitHub-Actions:
+  tests:
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
