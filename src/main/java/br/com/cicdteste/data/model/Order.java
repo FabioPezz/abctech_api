@@ -1,11 +1,8 @@
 package br.com.cicdteste.data.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+
+import javax.persistence.*;
 
 import lombok.Data;
 
@@ -22,5 +19,15 @@ public class Order {
 	@Column(name="operator_id", nullable=false, length=5)
 	private Long operatorId;
 	
+	@ManyToMany
+    private List<Assistance> assists;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "start_order_location_id", foreignKey = @ForeignKey(name ="FK_start_order_id"))
+    private OrderLocation startOrderLocation;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "end_order_location_id" , foreignKey = @ForeignKey(name ="FK_end_order_id"))
+    private OrderLocation endOrderLocation;
 
 }
