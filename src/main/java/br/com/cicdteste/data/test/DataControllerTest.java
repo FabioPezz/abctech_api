@@ -17,10 +17,6 @@ public class DataControllerTest {
 	void version() {
 		assertEquals("Version 1.0.0",dataController.version());
 	}
-	
-	void getBooks() {
-		Integer total = dataController.getBooks().size();
-		assertEquals(10, total);
-	}
+
 	
 }
