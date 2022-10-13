@@ -30,4 +30,12 @@ public class Order {
     @JoinColumn(name = "end_order_location_id" , foreignKey = @ForeignKey(name ="FK_end_order_id"))
     private OrderLocation endOrderLocation;
 
+    
+    public boolean hasMinAssists() {
+    	return assists.size() > 0;
+    }
+    
+    public boolean exceedsMaxAssists() {
+    	return assists.size() > 15;
+    }
 }
