@@ -25,7 +25,7 @@ public class OrderApplicationImpl implements OrderApplication {
 		Order order = new Order();
 		order.setOperatorId(orderDto.getOperatorId());
 		order.setStartOrderLocation(getOrderLocationFromOrderLocationDTO(orderDto.getStart()));
-		order.setEndOrderAlocation(getOrderLocationFromOrderLocationDTO(orderDto.getEnd()));
+		order.setEndOrderLocation(getOrderLocationFromOrderLocationDTO(orderDto.getEnd()));
 		
 		this.orderService.saveOrder(order, orderDto.getAssists());
 			}
