@@ -24,6 +24,14 @@ public class Order {
 	@Column(name="id", nullable=false)
 	private Long id;
 	
+	public List<Assistance> getAssists() {
+		return assists;
+	}
+
+	public void setAssists(List<Assistance> assists) {
+		this.assists = assists;
+	}
+
 	@Column(name="operator_id", nullable=false, length=5)
 	private Long operatorId;
 
@@ -46,5 +54,37 @@ public class Order {
     public boolean exceedsMaxAssists() {
     	return assists.size() > 15;
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getOperatorId() {
+		return operatorId;
+	}
+
+	public void setOperatorId(Long operatorId) {
+		this.operatorId = operatorId;
+	}
+
+	public OrderLocation getStartOrderLocation() {
+		return startOrderLocation;
+	}
+
+	public void setStartOrderLocation(OrderLocation startOrderLocation) {
+		this.startOrderLocation = startOrderLocation;
+	}
+
+	public OrderLocation getEndOrderLocation() {
+		return endOrderLocation;
+	}
+
+	public void setEndOrderLocation(OrderLocation endOrderLocation) {
+		this.endOrderLocation = endOrderLocation;
+	}
 
 }
