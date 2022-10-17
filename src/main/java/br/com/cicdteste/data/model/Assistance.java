@@ -9,15 +9,30 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Data
+@Getter
+@Setter
 @Table(name="TB_ASSISTANCE")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Assistance {
 	
+	public Assistance() {
+		super();
+	}
+
+	public Assistance(Long id, String name, String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;

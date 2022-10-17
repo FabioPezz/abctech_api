@@ -4,10 +4,18 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="TB_ORDER")
 public class Order {
 	
@@ -19,6 +27,10 @@ public class Order {
 	@Column(name="operator_id", nullable=false, length=5)
 	private Long operatorId;
 	
+	public void setOperatorId(Long operatorId) {
+		this.operatorId = operatorId;
+	}
+
 	@ManyToMany
     private List<Assistance> assists;
 
@@ -38,4 +50,12 @@ public class Order {
     public boolean exceedsMaxAssists() {
     	return assists.size() > 15;
     }
+
+	public List<Assistance> getAssists() {
+		return assists;
+	}
+
+	public void setAssists(List<Assistance> assists) {
+		this.assists = assists;
+	}
 }
