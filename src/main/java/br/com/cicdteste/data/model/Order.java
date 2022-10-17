@@ -26,10 +26,6 @@ public class Order {
 	
 	@Column(name="operator_id", nullable=false, length=5)
 	private Long operatorId;
-	
-	public void setOperatorId(Long operatorId) {
-		this.operatorId = operatorId;
-	}
 
 	@ManyToMany
     private List<Assistance> assists;
@@ -51,11 +47,4 @@ public class Order {
     	return assists.size() > 15;
     }
 
-	public List<Assistance> getAssists() {
-		return assists;
-	}
-
-	public void setAssists(List<Assistance> assists) {
-		this.assists = assists;
-	}
 }

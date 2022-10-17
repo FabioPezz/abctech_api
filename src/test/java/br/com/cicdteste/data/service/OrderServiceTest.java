@@ -62,7 +62,11 @@ public class OrderServiceTest {
 	}
 	
 	@Test
-	public void create_order_sucess() {
+	public void create_order_sucess() throws Exception{
+		Order newOrder = new Order();
+		newOrder.setOperatorId(1111L);
+		orderService.saveOrder(newOrder, generated_mocks_ids(5));
+		verify(orderRepository, times(1)).save(newOrder);
 		
 	}
 	

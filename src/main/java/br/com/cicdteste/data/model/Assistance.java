@@ -21,17 +21,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Assistance {
-	
-	public Assistance() {
-		super();
-	}
-
-	public Assistance(Long id, String name, String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
