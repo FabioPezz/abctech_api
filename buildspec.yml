@@ -12,8 +12,7 @@ phases:
       - mvn clean test compile jar:jar
   post_build:
     commands:
-      - echo "Movendo os arquivos que serão feitos upload"
-      - mv target/*.jar ./ROOT.jar
+      - echo "COMPILADO INDO PARA DEPLOY"
 artifacts:
   files:
-    - ROOT.jar
+    - data-0.0.1-SNAPSHOT.jar
