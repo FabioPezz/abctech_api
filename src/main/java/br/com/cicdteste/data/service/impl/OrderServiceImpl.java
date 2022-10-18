@@ -54,7 +54,7 @@ public class OrderServiceImpl implements OrderService{
 
 	@Override
 	public List<Order> listOrderbyOperator(Long operatorId) {
-		return null;
+		return orderRepository.getOrdersByOperatorId(operatorId);
 	}
 
 }
