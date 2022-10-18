@@ -15,4 +15,4 @@ phases:
       - echo "COMPILADO INDO PARA DEPLOY"
 artifacts:
   files:
-    - data-0.0.1-SNAPSHOT.jar
+    - target/data-0.0.1-SNAPSHOT.jar
