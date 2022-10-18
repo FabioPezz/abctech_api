@@ -38,7 +38,7 @@ public class ControllerExceptionHandler {
 		return new ResponseEntity<ErrorMessageResponse>(error, HttpStatus.BAD_REQUEST);
 	}
 	
-	@ExceptionHandler(MinimunAssistRequiredException.class)
+	@ExceptionHandler(NotFindAssistException.class)
 	public ResponseEntity<ErrorMessageResponse> errorNotFindAssistException(NotFindAssistException exception){
 		
 		ErrorMessageResponse error = new ErrorMessageResponse();
