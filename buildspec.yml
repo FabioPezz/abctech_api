@@ -17,4 +17,4 @@ phases:
       - mv target/*.jar ./ROOT.jar
 artifacts:
   files:
-    - ROOT.war
+    - ROOT.jar
