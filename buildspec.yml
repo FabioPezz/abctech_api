@@ -12,7 +12,8 @@ phases:
       - mvn clean test compile jar:jar
   post_build:
     commands:
-      - echo "COMPILADO INDO PARA DEPLOY"
+      - echo "COMPILADO E INDO PARA MVN PACKAGE"
+      - mvn package
 artifacts:
   files:
     - target/data-0.0.1-SNAPSHOT.jar
