@@ -2,6 +2,7 @@ package br.com.cicdteste.data.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,12 @@ public class OrderServiceImpl implements OrderService{
 	public void saveOrder(Order order, List<Long> arrayAssists) throws Exception {
 		ArrayList<Assistance> assistances = new ArrayList<>();
 		arrayAssists.forEach( i ->{
-			Assistance assistance = assistanceRepository.findById(i).orElseThrow();
-			assistances.add(assistance);
+			
+			Optional<Assistance> assistance = assistanceRepository.findById(i);
+			
+            if(!assistance.isPresent()){
+            }
+			assistances.add(assistance.get());
 		});
 		
 		order.setAssists(assistances);
