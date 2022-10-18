@@ -1,19 +1,16 @@
 version: 0.2
 phases:
-  install:
-    runtime-versions:
-      java: corretto11
   pre_build:
     commands:
       - echo "Pré build phase - Exemplo baixar dependências se fosse necessario"
   build:
     commands:
       - echo "Testing and Building"
-      - mvn clean test compile jar:jar
+      - mvn clean test compile
   post_build:
     commands:
       - echo "COMPILADO E INDO PARA MVN PACKAGE"
-      - mvn package
+      - mvn install
 artifacts:
   files:
     - target/data-0.0.1-SNAPSHOT.jar
