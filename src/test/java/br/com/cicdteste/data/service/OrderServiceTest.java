@@ -16,6 +16,8 @@ import org.mockito.Mock;
 import org.mockito.Mock.*;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import br.com.cicdteste.data.handler.exception.MaxAssistsException;
+import br.com.cicdteste.data.handler.exception.MinimunAssistRequiredException;
 import br.com.cicdteste.data.model.Assistance;
 import br.com.cicdteste.data.model.Order;
 import br.com.cicdteste.data.repository.AssistanceRepository;
@@ -48,16 +50,16 @@ public class OrderServiceTest {
 	@Test
 	public void create_order_error_minimun() {
 		Order newOrder = new Order();
-		newOrder.setOperatorId(1234L);
-		Assertions.assertThrows(Exception.class,() -> orderService.saveOrder(newOrder, List.of()));
+		newOrder.setOperatorId(111L);
+		Assertions.assertThrows(MinimunAssistRequiredException.class,() -> orderService.saveOrder(newOrder, List.of()));
 		verify(orderRepository, times(0)).save(newOrder);
 	}
 	
 	@Test
 	public void create_order_error_maximun() {
 		Order newOrder = new Order();
-		newOrder.setOperatorId(1234L);
-		Assertions.assertThrows(Exception.class,() -> orderService.saveOrder(newOrder, generated_mocks_ids(20) ));
+		newOrder.setOperatorId(111L);
+		Assertions.assertThrows(MaxAssistsException.class,() -> orderService.saveOrder(newOrder, generated_mocks_ids(20) ));
 		verify(orderRepository, times(0)).save(newOrder);
 	}
 	

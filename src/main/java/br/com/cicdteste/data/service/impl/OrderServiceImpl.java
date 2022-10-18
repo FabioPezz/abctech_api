@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.cicdteste.data.handler.exception.MaxAssistsException;
+import br.com.cicdteste.data.handler.exception.MinimunAssistRequiredException;
 import br.com.cicdteste.data.model.Assistance;
 import br.com.cicdteste.data.model.Order;
 import br.com.cicdteste.data.repository.AssistanceRepository;
@@ -36,10 +38,10 @@ public class OrderServiceImpl implements OrderService{
 		order.setAssists(assistances);
 		 
 		if(!order.hasMinAssists()) {
-			throw new Exception();
+			throw new MinimunAssistRequiredException("Invalid Assists","Necessario ao menos 1 assistencia");
 		}
 		else if(order.exceedsMaxAssists()) {
-			throw new Exception();
+			throw new MaxAssistsException("Invalid Assists","Quantidade máxima de assistencias é 15");
 		}
 		
 		orderRepository.save(order);
