@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name="TB_ORDERLOCATION")
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderLocation {

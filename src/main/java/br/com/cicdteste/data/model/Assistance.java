@@ -17,7 +17,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name="TB_ASSISTANCE")
+@Table(name="assistances")
 public class Assistance {
 
 	@Id
