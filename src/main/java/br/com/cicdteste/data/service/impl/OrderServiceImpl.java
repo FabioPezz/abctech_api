@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.cicdteste.data.handler.exception.MaxAssistsException;
 import br.com.cicdteste.data.handler.exception.MinimunAssistRequiredException;
+import br.com.cicdteste.data.handler.exception.NotFindAssistException;
 import br.com.cicdteste.data.model.Assistance;
 import br.com.cicdteste.data.model.Order;
 import br.com.cicdteste.data.repository.AssistanceRepository;
@@ -36,6 +37,7 @@ public class OrderServiceImpl implements OrderService{
 			Optional<Assistance> assistance = assistanceRepository.findById(i);
 			
             if(!assistance.isPresent()){
+            	throw new NotFindAssistException("Invalid Assists","A Ordem possui uma ou mais assistencias não cadastradas");
             }
 			assistances.add(assistance.get());
 		});
