@@ -9,5 +9,5 @@ import lombok.Data;
 public interface AssistanceApplication {
 
 	public List<AssistDto> getAssists();
-	
+
 }
