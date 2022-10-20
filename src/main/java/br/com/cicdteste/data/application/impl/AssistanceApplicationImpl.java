@@ -1,16 +1,30 @@
 package br.com.cicdteste.data.application.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import br.com.cicdteste.data.application.AssistanceApplication;
 import br.com.cicdteste.data.application.dto.AssistDto;
+import br.com.cicdteste.data.model.Assistance;
+import br.com.cicdteste.data.service.AssistanceService;
 
+@Component
 public class AssistanceApplicationImpl implements AssistanceApplication {
 
-	@Override
-	public List<AssistDto> getAssists() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    private AssistanceService service;
 
+    public  AssistanceApplicationImpl (@Autowired AssistanceService service){
+        this.service = service;
+    }
+    @Override
+    public List<AssistDto> getAssists() {
+        return this.service.getAssistanceList().stream().map(this::mapAssistToDto).collect(Collectors.toList());
+    }
+
+    private AssistDto mapAssistToDto(Assistance assist){
+        return new AssistDto(assist.getId(), assist.getName(), assist.getDescription());
+    }
 }
